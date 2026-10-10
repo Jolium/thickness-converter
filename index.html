@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thickness Converter</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Thickness Converter</h1>
+        <p>Upload the same design made for thin and for thick material. The converter turns them into an SVG for any other thickness.</p>
+      </header>
+
+      <section class="sources">
+        <div class="card" id="side-thin">
+          <h2>Thin design</h2>
+          <label class="drop">
+            <input type="file" accept=".svg,image/svg+xml" hidden />
+            <span class="drop-text">Drop an SVG here or click to choose</span>
+          </label>
+          <label class="thick-row">Thickness <input class="t" inputmode="decimal" value="2" /> mm</label>
+        </div>
+        <div class="card" id="side-thick">
+          <h2>Thick design</h2>
+          <label class="drop">
+            <input type="file" accept=".svg,image/svg+xml" hidden />
+            <span class="drop-text">Drop an SVG here or click to choose</span>
+          </label>
+          <label class="thick-row">Thickness <input class="t" inputmode="decimal" value="6" /> mm</label>
+        </div>
+      </section>
+
+      <section class="card" id="check" hidden></section>
+
+      <section class="card" id="make">
+        <h2>New thickness</h2>
+        <div class="make-row">
+          <label class="thick-row"><input id="t-new" inputmode="decimal" value="4" /> mm</label>
+          <div class="chips">
+            <button type="button" data-t="2">2</button>
+            <button type="button" data-t="2.5">2.5</button>
+            <button type="button" data-t="3">3</button>
+            <button type="button" data-t="3.175">1/8″</button>
+            <button type="button" data-t="4">4</button>
+            <button type="button" data-t="5">5</button>
+            <button type="button" data-t="6">6</button>
+            <button type="button" data-t="6.35">1/4″</button>
+            <button type="button" data-t="8">8</button>
+          </div>
+          <button type="button" id="go" class="primary" disabled>Make SVG</button>
+        </div>
+        <div id="result"></div>
+      </section>
+
+      <footer>
+        Want to save material? Load the downloaded SVG into
+        <a href="https://deepnest.io" target="_blank" rel="noopener">Deepnest</a> (free) to pack the parts tighter
+        by their real shape, set the spacing to the same gap, then open the result in LightBurn.
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
